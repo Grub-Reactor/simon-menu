@@ -7,6 +7,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "seeding": "node seeding.js",
     "start": "nodemon server/server.js",
     "build": "webpack -d --watch",
     "db:setup": "node database-mongodb/seed.js"
@@ -29,7 +30,13 @@
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git"
+    "bootstrap": "^4.1.3",
+    "eslint": "^5.7.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "faker": "^4.1.0",
+    "install": "^0.12.2",
+    "jest": "^23.6.0",
+    "puppeteer": "^1.9.0"
   },
   "version": "1.0.0",
   "main": "client/index.js",

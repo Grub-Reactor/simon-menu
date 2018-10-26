@@ -9,7 +9,9 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('grub-reactor/menu',function(req,res){
 	
 });
-
+app.get('/',function(req, res){
+    res.send()
+})
 
 
 app.listen(3000);
