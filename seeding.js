@@ -3,24 +3,24 @@ var seeding = function () {
 	var idCount = 1;
 	for (var i = 0; i < 100; i++) {
 		var data = {
-			Id: i,
-			Categories: []
+			id: i,
+			categories: []
 		}
 		for (var j = 0; j < 10; j++) {
-			data.Categories.push({
-				CategoryName: faker.fake('{{address.country}}'),
-				Dishes: []
+			data.categories.push({
+				categoryName: faker.fake('{{address.country}}'),
+				dishes: []
 			})
 			for (var k = 0; k < 10; k++) {
-				data.Categories[0].Dishes.push(
+				data.categories[0].dishes.push(
 					[{
-						Name: faker.fake('{{commerce.productName}}'),
-						Price: faker.fake('{{commerce.price}}'),
-						Id: idCount,
-						Spice: faker.fake('{{random.boolean}}'),
-						Popular: faker.fake('{{random.boolean}}'),
-						ImageUrl: faker.fake('{{image.food}}'),
-						Text: faker.fake('{{hacker.phrase}}')
+						name: faker.fake('{{commerce.productName}}'),
+						price: faker.fake('{{commerce.price}}'),
+						id: idCount,
+						spice: faker.fake('{{random.boolean}}'),
+						popular: faker.fake('{{random.boolean}}'),
+						imageUrl: faker.fake('{{image.food}}'),
+						text: faker.fake('{{hacker.phrase}}')
 					}]
 				);
 				idCount++
