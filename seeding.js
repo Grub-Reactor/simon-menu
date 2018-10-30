@@ -1,4 +1,5 @@
 var Menu = require('./schema.js');
+var faker = require('faker');
 var seeding = function () {
 	var idCount = 1;
 	for (var i = 0; i < 100; i++) {
@@ -12,8 +13,8 @@ var seeding = function () {
 				dishes: []
 			})
 			for (var k = 0; k < 10; k++) {
-				data.categories[0].dishes.push(
-					[{
+				data.categories[j].dishes.push(
+					{
 						name: faker.fake('{{commerce.productName}}'),
 						price: faker.fake('{{commerce.price}}'),
 						id: idCount,
@@ -21,7 +22,7 @@ var seeding = function () {
 						popular: faker.fake('{{random.boolean}}'),
 						imageUrl: faker.fake('{{image.food}}'),
 						text: faker.fake('{{hacker.phrase}}')
-					}]
+					}
 				);
 				idCount++
 			}
