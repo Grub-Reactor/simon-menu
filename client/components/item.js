@@ -8,8 +8,8 @@ var Item = (props)=>{
             <div key = {item.id} className="itemName">
             <img src = {item.imageUrl}></img>
             <h4 className = 'name'>{item.name}</h4>
-            <span className='price'>{item.price}</span>
             <div className='text'>{item.text}</div>
+            <span className='price'>$ {item.price}</span>
             </div>
           )
          })}

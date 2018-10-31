@@ -4,6 +4,8 @@
 .menuItem {
   display: inline-block;
   background-color:#e9dddd;
+  padding:3%;
+  border-radius: 1%;
   width:66%;
 }
 .itemName{
@@ -12,11 +14,13 @@
   display: inline-block;
   border: 2px solid white;
   border-radius: 5px;
+  padding: 4px;
+  margin: 4px;
   margin: 2px;
-  width:48%;
+  width:45%;
 }
 img{
-  height: 65px;
+  height: 92px;
   width: 33%;
   display: inline-block;
   float: right; 
@@ -34,4 +38,13 @@ img.md{
 }
 .name {
   color: blue;
+}
+h3{
+  width: 66%;
+}
+.price{
+  position: absolute;
+    right: 4px;
+    top: 2px;
+    font-weight: bold;
 }

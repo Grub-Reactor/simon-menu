@@ -10,8 +10,14 @@ class Category extends React.Component {
   render(){
     return(
     <div>
-      {this.props.menu.categories.map((category) => {
-      return <Item items = {category} key= {category.categoryName + category.dishes[0].id} />
+      {this.props.menu.categories.map((category,i) => {
+      return (
+        <div key = {category.categoryName+i}>
+          <h3>{category.categoryName}</h3>
+          <Item items = {category} key= {category.categoryName + category.dishes[0].id} />
+        </div>
+      )
+      
       })}
     </div>
     )

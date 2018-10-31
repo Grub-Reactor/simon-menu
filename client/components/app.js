@@ -11,7 +11,7 @@ export default class Menu extends Component {
 	}
 	componentDidMount() {
 		console.log("hello world")
-		fetch('http://localhost:3001/grub-reactor/menu')
+		fetch('http://localhost:3001/grub-reactor/menu/')
 		.then(response => response.json())
 		.then(data =>  this.setState({menu:data}))	
 	}
