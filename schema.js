@@ -1,22 +1,25 @@
 const mongoose = require('mongoose');
-var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/menu');
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
+var faker = require('faker');
 
-const menuSchema = new mongoose.Schema({
-  category: String,
-  price: Number,
-  imageUrl: String,
-  itemName: text,
-  spice: Boolean,
-  popular:Boolean,
-  itemId: Number
-  } 
-);
+const restaurantSchema = new mongoose.Schema({
 
-const Menu = mongoose.model('Menu', menuSchema);
+    id: Number,
+    categories: [{
+        categoryName: String,
+        dishes: [{
+            name: String,
+            price: Number,
+            id: Number,
+            spice: Boolean,
+            popular: Boolean,
+            imageUrl: String,
+            text: String
+        }]
+    }]
+});
+
+const Menu = mongoose.model('Menu', restaurantSchema);
 
 module.exports = Menu;
-
-
-
