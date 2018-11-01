@@ -10,8 +10,8 @@ export default class Menu extends Component {
 		}
 	}
 	componentDidMount() {
-		console.log("hello world")
-		fetch('http://localhost:3001/grub-reactor/menu/')
+		var id = Math.floor(Math.random()*99);
+		fetch(`http://localhost:3001/grub-reactor/menu/${id}`)
 		.then(response => response.json())
 		.then(data =>  this.setState({menu:data}))	
 	}
@@ -21,8 +21,9 @@ export default class Menu extends Component {
 console.log(this.state.menu.length > 0)
 		if(this.state.menu.length > 0){
 			return ( 
-				<div>
-				{console.log('here is my menu in app', this.state.menu[0])}
+				 <div className = 'display'>
+				
+				{console.log('here is my menu in app', this.state.menu)}
 				<Category menu = {this.state.menu[0]}/ >
 				</div>
 			)
