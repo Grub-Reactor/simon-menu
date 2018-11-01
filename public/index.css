@@ -27,12 +27,26 @@ img{
   float: right; 
 }
 img.lg{
-  width:100%;
-  height:120;
+  display:block;
+  width: 66%;
+  height: 50%;
+  float: left;
 }
 img.md{
-  width:66%;
-  height:80%;
+  display: inline-block;
+  width: 33%;
+  height: 186px;
+}
+.display{
+  background-color:#e9dddd;
+  display: block;
+  position: relative;
+  width: 74%;
+  height: 405px;
+  overflow: hidden;
+  text-align: right;
+  margin-bottom: 5px;
+  border-radius: 2px;
 }
 .text{
   position: absolute;
@@ -55,4 +69,16 @@ h3{
     right: 4px;
     top: 2px;
     font-weight: bold;
+}
+.priceTag{
+  z-index:100;
+  background-color: #fcfbfb33;
+  position: absolute;
+  width:100px;
+  height: 100px;
+  right: 100px;
+  left: 100px;
+}
+.cantainer {
+  position: relative;
 }
