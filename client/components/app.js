@@ -1,6 +1,7 @@
 
-import Category from './category.js';
 import React, {Component} from 'react';
+import Modal from './modal.js';
+import Category from './category.js';
 var image = ['https://s3-us-west-1.amazonaws.com/grubreactor/abstract-barbecue-barbeque-bbq-161519.jpeg',
     'https://s3-us-west-1.amazonaws.com/grubreactor/abstract-barbecue-barbeque-bbq-161519.jpeg',
     'https://s3-us-west-1.amazonaws.com/grubreactor/brownie-dessert-cake-sweet-45202.jpeg',
@@ -21,22 +22,37 @@ export default class Menu extends Component {
 		super(props)
 		this.state = {
 			menu: '',
+			showModal: false
 		}
+		this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+  
+  handleOpenModal () {
+    this.setState({ showModal: true });
+  }
+  
+  handleCloseModal () {
+    this.setState({ showModal: false });
 	}
+	
 	componentDidMount() {
-
 		const url = `${window.location}menu`
 		fetch(url)
 		.then(response => response.json())
 		.then(data =>  this.setState({menu:data}))	
 	}
+	
 
 	render() {
-		
-console.log(this.state.menu.length > 0)
 		if(this.state.menu.length > 0){
+			if(this.state.showModal){
+				var modal = <div className = 'modal'></div>;
+			}else modal = '';
 			return ( 
-				<React.Fragment>
+				<div onClick ={this.handleOpenModal}>
+					<React.Fragment >
+					{modal}
 					<div className = 'display'>
 						<div className = 'container'>
 							<img className = 'lg' src = {random()}></img>
@@ -53,9 +69,10 @@ console.log(this.state.menu.length > 0)
 					</div>
 					<div>
 					{console.log('here is my menu in app', this.state.menu)}
-					<Category menu = {this.state.menu[0]}/ >
+					<Category menu = {this.state.menu[0]} closeModal = {this.handleCloseModal} openModal = {this.handleOpenModal}/ >
 					</div>
 				</React.Fragment>
+				</div>
 			)
 		}else {
 			return <div> this don't work</div>

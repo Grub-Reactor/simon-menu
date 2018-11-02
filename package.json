@@ -23,6 +23,7 @@
     "path": "^0.12.7",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-modal": "^3.6.1",
     "webpack": "^4.23.0",
     "webpack-cli": "^3.1.2"
   },
@@ -53,13 +54,9 @@
   "bugs": {
     "url": "https://github.com/Grub-Reactor/simon-menu/issues"
   },
-  "homepage": "https://github.com/Grub-Reactor/simon-menu#readme"
-  ,
-  
+  "homepage": "https://github.com/Grub-Reactor/simon-menu#readme",
   "jest": {
-    "verbose":true,
+    "verbose": true,
     "setupTestFrameworkScriptFile": "<rootDir>test/setupTests.js"
   }
-  
-  
 }

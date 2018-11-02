@@ -82,3 +82,11 @@ h3{
 .cantainer {
   position: relative;
 }
+.modal{
+  z-index: 10000;
+  background-color: #8f626285;
+  position: absolute;
+  width: 500px;
+  height: 600px;
+
+}
