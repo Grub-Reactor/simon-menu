@@ -1,40 +1,73 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
-class modal extends React.Component {
-  constructor () {
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
+// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement('#app')
+
+class MenuModal extends React.Component {
+  constructor() {
     super();
-    this.state = {
-      showModal: false
-    };
-    
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
-  
-  handleOpenModal () {
-    this.setState({ showModal: true });
-  }
-  
-  handleCloseModal () {
-    this.setState({ showModal: false });
-  }
-  
-  render () {
+  //   this.state = {
+  //     modalIsOpen: false
+  //   };
+
+  //   this.openModal = this.openModal.bind(this);
+  //   this.afterOpenModal = this.afterOpenModal.bind(this);
+  //   this.closeModal = this.closeModal.bind(this);
+  // }
+
+  // openModal() {
+  //   this.setState({modalIsOpen: true});
+  // }
+
+  // afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   this.subtitle.style.color = '#f00';
+  // }
+
+  // closeModal() {
+  //   this.setState({modalIsOpen: false});
+  // }
+
+  render() {
     return (
       <div>
-        <button onClick={this.handleOpenModal}>Trigger Modal</button>
-        <ReactModal 
-           isOpen={this.state.showModal}
-           contentLabel="Minimal Modal Example"
+        <button onClick={this.props.open}>Open Modal</button>
+        <Modal
+          isOpen={this.props.state}
+          onAfterOpen={this.props.afterOpen}
+          onRequestClose={this.props.close}
+          style={customStyles}
+          contentLabel="Example Modal"
         >
-          <button onClick={this.handleCloseModal}>Close Modal</button>
-        </ReactModal>
+
+          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+          <button onClick={this.props.closeModal}>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </Modal>
       </div>
     );
   }
 }
 
-const props = {};
-
-export default modal;
+export default MenuModal;
