@@ -87,7 +87,7 @@ h3{
   z-index: 10;
     width: 235px;
     height: 65px;
-    display: block;
+    display: flex;
     position: absolute;
     right: 4px;
     top: 100px;
@@ -107,6 +107,15 @@ h3{
   background-color: #faebd7b8;
   border-radius: 11px;
   text-align: center;
+}
+.priceTag3 h3 {
+  left: 117px;
+    top: 36px;
+    display: flex;
+}
+.priceTag3 h2 {
+  left: 119px;
+  display: flex;
 }
 .cantainer {
   position: absolute;

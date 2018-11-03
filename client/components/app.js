@@ -58,7 +58,7 @@ export default class Menu extends Component {
 			return ( 
 					<div onClick = {()=>this.openModal()}>
 						<React.Fragment >
-						<MenuModal />
+						{/* <MenuModal /> */}
 					<div className = 'display'>
 						<div className = 'container'>
 							<img className = 'lg' src = {random()}></img>

@@ -19,43 +19,43 @@ Modal.setAppElement('#app')
 class MenuModal extends React.Component {
   constructor() {
     super();
+  
+    this.state = {
+      modalIsOpen: false
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
-  //   this.state = {
-  //     modalIsOpen: false
-  //   };
 
-  //   this.openModal = this.openModal.bind(this);
-  //   this.afterOpenModal = this.afterOpenModal.bind(this);
-  //   this.closeModal = this.closeModal.bind(this);
-  // }
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
 
-  // openModal() {
-  //   this.setState({modalIsOpen: true});
-  // }
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = '#f00';
+  }
 
-  // afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   this.subtitle.style.color = '#f00';
-  // }
-
-  // closeModal() {
-  //   this.setState({modalIsOpen: false});
-  // }
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
 
   render() {
     return (
       <div>
-        <button onClick={this.props.open}>Open Modal</button>
+        <button onClick={this.openModal}>Open Modal</button>
         <Modal
-          isOpen={this.props.state}
-          onAfterOpen={this.props.afterOpen}
-          onRequestClose={this.props.close}
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
         >
 
           <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-          <button onClick={this.props.closeModal}>close</button>
+          <button onClick={this.closeModal}>close</button>
           <div>I am a modal</div>
           <form>
             <input />

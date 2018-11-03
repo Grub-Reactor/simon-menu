@@ -1076,10 +1076,11 @@ var props = {};
 
 describe('menu test ', function(){
   it('should have a image, h4, span, div',function(){
-	//  let mounted = mount(<Item items ={props}/>);
-	 const wrapper = shallow(<Item items ={props}/>);
-expect(wrapper.find('div')).to.have.lengthOf(1);
-expect(wrapper.find('span')).to.have.lengthOf(1);
+	let mounted = mount(<Item items ={props}/>);
+	//  const wrapper = shallow(<Item items ={props}/>);
+
+//expect(mounted.find('div')).to.have.lengthOf(1);
+
 
   })
 })
