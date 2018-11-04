@@ -1,6 +1,10 @@
 import { shallow, mount, render } from 'enzyme';
 import React from 'react';
+import fetch from 'isomorphic-fetch';
 import Item from '../../client/components/item.js';
+import Menu from '../../client/components/app.js';
+import Category from '../../client/components/category.js';
+import MenuModal from '../../client/components/modal.js';
 var ObjectId = function(a){
   return a;
 }
@@ -1076,11 +1080,41 @@ var props = {};
 
 describe('menu test ', function(){
   it('should have a image, h4, span, div',function(){
-	let mounted = mount(<Item items ={props}/>);
-	//  const wrapper = shallow(<Item items ={props}/>);
+		let item = shallow(<Item items={props} />);
+		expect(item.find('.itemName')).toHaveLength(1);
+		expect(item.find('span')).toHaveLength(1);
 
-//expect(mounted.find('div')).to.have.lengthOf(1);
+	})
+	it('should have an image', function(){
+		let item = shallow(<Item items={props} />);
+		expect(item.find('img')).toHaveLength(1);
+	})
+	it('should have a state menu', function(){
+		let item = shallow(<Item items={props} />);
+	})
+})
+describe('app test', function(){
+	it('should mount the dom with catagory and item',function(){
+		let menu = mount(<Menu />);
+		expect(menu.exists()).toBe(true);
+	})
+})
+describe('Category', function(){
+	let wrapper = shallow(<Category menu={props.dishes[0]}/>);
 
-
-  })
+	it('should have Item',function(){
+		expect(wrapper.find('Item')).toBeDefined();
+	})
+	it('should have category',function(){
+		expect(wrapper).toMatchSnapshot();
+	})
+})
+describe('modal should exists', () => {
+	let wrapper = shallow(<MenuModal/ >);
+	expect(wrapper.exists()).toBe(true);
+	expect(wrapper.state.modalIsOpen).toBe(true);
+	expect(wrapper.find('div').length).toBeGreaterThan(0);
+	wrapper.find('button.open').simulate('click');
+	expect(wrapper.state.modalIsOpen).toBe(false);
+	expect(wrapper.find('button').length).toEqual(6);
 })

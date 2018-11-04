@@ -111,7 +111,7 @@ h3{
 .priceTag3 h3 {
   left: 117px;
     top: 36px;
-    display: flex;
+     display: flex;
 }
 .priceTag3 h2 {
   left: 119px;
@@ -120,14 +120,7 @@ h3{
 .cantainer {
   position: absolute;
 }
-.modal{
-  z-index: 10000;
-  background-color: #8f626285;
-  position: absolute;
-  width: 500px;
-  height: 600px;
 
-}
 
 
 .price{

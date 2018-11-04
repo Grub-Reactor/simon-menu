@@ -56,9 +56,9 @@ export default class Menu extends Component {
 	render() {
 		if(this.state.menu.length > 0){
 			return ( 
-					<div onClick = {()=>this.openModal()}>
+					<div onClick = {this.openModal}>
 						<React.Fragment >
-						{/* <MenuModal /> */}
+						<MenuModal />
 					<div className = 'display'>
 						<div className = 'container'>
 							<img className = 'lg' src = {random()}></img>
