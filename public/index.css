@@ -129,3 +129,6 @@ h3{
 
 
 }
+.ReactModal__Overlay {
+  z-index: 10000;
+}

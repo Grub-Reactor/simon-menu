@@ -44,7 +44,7 @@ class MenuModal extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = 'modal'>
         <button className = 'open' onClick={this.openModal}>Open Modal</button>
         <Modal
           isOpen={this.state.modalIsOpen}
