@@ -54,31 +54,32 @@ export default class Menu extends Component {
 	
 
 	render() {
+
 		if(this.state.menu.length > 0){
 			return ( 
 					<div onClick = {this.openModal}>
 						<React.Fragment >
 						<MenuModal />
 					<div className = 'display'>
-						<div className = 'container'>
+						<div className = 'container1'>
 							<img className = 'lg' src = {random()}></img>
 							<div className = 'priceTag1'>
-							<h2>Pizza</h2>
-							<h3>$ 9.99 +</h3>
+							<h2 className ='price1'>Pizza</h2>
+							<h3 className ='price1'>$ 9.99 +</h3>
 							</div>
 						</div>
-						<div className = 'container'>
+						<div className = 'container2'>
 							<img className = 'md' src = {random()}></img>
 							<div className = 'priceTag2'>
-							<h2>chicken</h2>
-							<h3>$ 9.99 +</h3>
+							<h2 className ='price1'>chicken</h2>
+							<h3 className ='price1'>$ 9.99 +</h3>
 							</div>
 						</div>
-						<div className = 'container'>
+						<div className = 'container3'>
 							<img className = 'md' src = {random()}></img>
 							<div className = 'priceTag3'>
-							<h2 className = 'price'>Tuna</h2>
-							<h3 className = 'price'>$ 9.99 +</h3>
+							<h2 className = 'price1'>Tuna</h2>
+							<h3 className = 'price1'>$ 9.99 +</h3>
 							</div>
 						</div>
 					</div>

@@ -27,22 +27,21 @@ img{
   float: right; 
 }
 img.lg{
-  display:block;
-  width: 66%;
-  height: 50%;
-  float: left;
+  width: 100%;
+  height: 100%;
 }
+
 img.md{
   display: inline-block;
-  width: 33%;
-  height: 186px;
+  width: 100%;
+  height: 100%;
 }
 .display{
   background-color:#e9dddd;
   display: block;
   position: relative;
   width: 74%;
-  height: 405px;
+  height: 500px;
   overflow: hidden;
   text-align: right;
   margin-bottom: 5px;
@@ -72,63 +71,80 @@ h3{
 }
 .priceTag1{
   z-index:10;
-  display: block;
   width: 235px;
-    height: 65px;
-    display: block;
-    position: absolute;
-    left: 587px;
-    top: 283px;
-    background-color: #faebd7b8;
-    border-radius: 11px;
-    text-align: center;
+  height: 53px;
+  display: block;
+  position: absolute;
+  left: 150px;
+  top: 226px;
+  background-color: #faebd7b8;
+  border-radius: 11px;
+  text-align: center;
+  padding: 13px;
+  border-radius: 11px;
 }
 .priceTag2{
   z-index: 10;
     width: 235px;
     height: 65px;
-    display: flex;
     position: absolute;
-    right: 4px;
-    top: 100px;
+    right: 0px;
+    top: 0px;
+    padding:10px;
     background-color: #faebd7b8;
     border-radius: 11px;
     text-align: center;
 
 }
 .priceTag3{
-  z-index:10;
-  width:300px;
-  height: 80px;
-  display: block;
+    z-index: 10;
+    width: 258px;
+    height: 76px;
+    display: block;
+    position: absolute;
+    top: 134px;
+    padding:10px;
+    background-color: #faebd7b8;
+    border-radius: 11px;
+    text-align: center;
+}
+
+.container1 {
   position: relative;
-  right: -190px;
-  top: 254px;
-  background-color: #faebd7b8;
-  border-radius: 11px;
-  text-align: center;
+    display: block;
+    width: 66%;
+    height: 100%;
+    float: left;
 }
-.priceTag3 h3 {
-  left: 117px;
-    top: 36px;
-     display: flex;
-}
-.priceTag3 h2 {
-  left: 119px;
+
+
+
+.price1{
+  position: relative;
+  margin: 0px;
+  text-align: left;
   display: flex;
-}
-.cantainer {
-  position: absolute;
-}
-
-
-
-.price{
-  position: absolute;
-  display: flex;
+  padding: 3px;
 
 
 }
 .ReactModal__Overlay {
   z-index: 10000;
+}
+.container2{
+  display: inline;
+  position: relative;
+  display: inline-block;
+  width: 34%;
+  height: 50%
+
+
+}
+.container3{
+  display: inline;
+  position: relative;
+  display: inline-block;
+  width: 34%;
+  height: 50%
+
 }
