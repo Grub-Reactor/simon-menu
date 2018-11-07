@@ -32,9 +32,14 @@ export default class Menu extends Component {
   
 	
 	componentDidMount() {
-		const url = `${window.location}menu`;
+		console.log('mount');
+		let menuId = window.location.pathname.split('/')[1];
+		const url = `/grub-reactor/${menuId}/menu`;
 		fetch(url)
-		.then(response => response.json())
+		.then(response => {
+			console.log(response);
+			return response.json()
+		})
 		.then(data =>  this.setState({menu:data}))	
 	}
 	openModal() {
