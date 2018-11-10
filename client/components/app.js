@@ -24,47 +24,39 @@ export default class Menu extends Component {
 			menu: '',
 			modalIsOpen: false
 		}
-		this.openModal = this.openModal.bind(this);
-
-    this.closeModal = this.closeModal.bind(this);
+		this.toggleModal = this.toggleModal.bind(this);
   }
   
   
 	
 	componentDidMount() {
-		console.log('mount');
-		let menuId = window.location.pathname.split('/')[1];
-		const url = `/grub-reactor/${menuId}/menu`;
+		let menuId = window.location.pathname.split('/')[2];
+		const url = `http://ec2-52-43-228-173.us-west-2.compute.amazonaws.com/grub-reactor/${menuId}/menu`;
+    console.log(url)
 		fetch(url)
 		.then(response => {
-			console.log(response);
-			return response.json()
+			 return response.json()
 		})
-		.then(data =>  this.setState({menu:data}))	
+	.then(data => {console.log(data)
+		this.setState({menu:data})}).catch(function(error){
+			console.log(error)
+		})	
+
 	}
-	openModal() {
+	toggleModal() {
+		// rename to toggleModal
 		var newState = this.state;
-		newState.modalIsOpen= true;
+		newState.modalIsOpen= !this.state.modalIsOpen;
     this.setState(newState);
   }
-
-  
-
-  closeModal() {
-		var newState = this.state;
-		newState.modalIsOpen = false;
-    this.setState(newState);
-    
-  }
-	
 
 	render() {
 
 		if(this.state.menu.length > 0){
 			return ( 
-					<div onClick = {this.openModal}>
+					<div onClick = {this.toggleModal}>
 						<React.Fragment >
-						<MenuModal />
+						<MenuModal a = {this.state.modalIsOpen} handleToggle ={this.toggleModal}/>
 					<div className = 'display'>
 						<div className = 'container1'>
 							<img className = 'lg' src = {random()}></img>
