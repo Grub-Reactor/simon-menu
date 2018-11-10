@@ -31,7 +31,7 @@ export default class Menu extends Component {
 	
 	componentDidMount() {
 		let menuId = window.location.pathname.split('/')[2];
-		const url = `http://ec2-52-43-228-173.us-west-2.compute.amazonaws.com/grub-reactor/${menuId}/menu`;
+		const url = `http://ec2-52-43-228-173.us-west-2.compute.amazonaws.com:3001/grub-reactor/${menuId}/menu`;
     console.log(url)
 		fetch(url)
 		.then(response => {
