@@ -1,5 +1,6 @@
 var Menu = require('./schema.js');
 var faker = require('faker');
+var mongoose = require('mongoose');
 var image = ['https://s3-us-west-1.amazonaws.com/grubreactor/abstract-barbecue-barbeque-bbq-161519.jpeg',
     'https://s3-us-west-1.amazonaws.com/grubreactor/abstract-barbecue-barbeque-bbq-161519.jpeg',
     'https://s3-us-west-1.amazonaws.com/grubreactor/brownie-dessert-cake-sweet-45202.jpeg',
@@ -15,8 +16,9 @@ var random = function(){
     return image[index];
 };
 var seeding = function () {
+    var promises =[];
     var idCount = 1;
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 100; i++) { 
         var data = {
             id: i,
             categories: []
@@ -39,18 +41,18 @@ var seeding = function () {
                     }
                 );
                 idCount++;
+               
             }
         }
 
         var menu = new Menu(data);
-        menu.save(function (error, results) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log(results);
-            }
-        });
+        
+        var men = menu.save();
+        promises.push(men);
     }
+    Promise.all(promises).then(function(){
+        mongoose.connection.close();
+    });
 };
 
 seeding();

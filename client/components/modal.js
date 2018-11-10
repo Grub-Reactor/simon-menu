@@ -17,37 +17,17 @@ const customStyles = {
 Modal.setAppElement(document.getElementById('#app'))
 
 class MenuModal extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
   
-    this.state = {
-      modalIsOpen: false
-    };
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
+   
   }
 
   render() {
     return (
       <div className = 'modal'>
-        <button className = 'open' onClick={this.openModal}>Open Modal</button>
         <Modal
-          isOpen={this.state.modalIsOpen}
+          isOpen={this.props.a}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
@@ -56,14 +36,17 @@ class MenuModal extends React.Component {
         >
 
           <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
+          <button onClick={this.toggleModal}>close</button>
+          <div>Schedule my order</div>
           <form>
             <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
+            <p>Select a delivery time up to 4 days in advance</p>
+            <button>ASAP</button>
+            <button>Today</button>
+            <button>Later</button>
+            <button>At 10:45am</button>
+            <label><h3>Delivery address</h3></label>
+            <input placeholder = 'Street Address, City State'></input>
           </form>
         </Modal>
       </div>

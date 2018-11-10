@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/menu');
+mongoose.connect('mongodb://localhost/menu');//172.17.0.2
+console.log( 'connection')
 mongoose.Promise = global.Promise;
 var faker = require('faker');
 

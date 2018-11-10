@@ -8,7 +8,7 @@
   },
   "scripts": {
     "seeding": "node seeding.js",
-    "start": "nodemon server/server.js",
+    "start": "node server/server.js",
     "build": "webpack -d --watch",
     "db:setup": "node database-mongodb/seed.js"
   },
