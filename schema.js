@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://172.17.0.3/menu');//172.17.0.2
-console.log( 'connection')
+mongoose.connect('mongodb://localhost/menu', {
+    useNewUrlParser: true
+}); //172.17.0.2
+console.log('connection')
 mongoose.Promise = global.Promise;
 var faker = require('faker');
 
@@ -16,7 +18,7 @@ const restaurantSchema = new mongoose.Schema({
             spice: Boolean,
             popular: Boolean,
             imageUrl: String,
-            text: String
+            text: String,
         }]
     }]
 });

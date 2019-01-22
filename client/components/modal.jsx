@@ -1,31 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
 const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
 };
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement(document.getElementById('#app'))
+Modal.setAppElement(document.getElementById('#app'));
 
 class MenuModal extends React.Component {
   constructor(props) {
-    super(props)
-  
-   
+    super(props);
   }
 
   render() {
     return (
-      <div className = 'modal'>
+      <div className="modal">
         <Modal
           isOpen={this.props.a}
           onAfterOpen={this.afterOpenModal}
@@ -34,8 +31,7 @@ class MenuModal extends React.Component {
           contentLabel="Example Modal"
           ariaHideApp={false}
         >
-
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+          <h2 ref={(subtitle) => (this.subtitle = subtitle)}>Hello</h2>
           <button onClick={this.toggleModal}>close</button>
           <div>Schedule my order</div>
           <form>
@@ -45,8 +41,10 @@ class MenuModal extends React.Component {
             <button>Today</button>
             <button>Later</button>
             <button>At 10:45am</button>
-            <label><h3>Delivery address</h3></label>
-            <input placeholder = 'Street Address, City State'></input>
+            <label>
+              <h3>Delivery address</h3>
+            </label>
+            <input placeholder="Street Address, City State" />
           </form>
         </Modal>
       </div>
